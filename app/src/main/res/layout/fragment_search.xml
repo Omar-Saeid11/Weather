@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <EditText
+        android:id="@+id/input_city_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_search"
+        android:drawableEnd="@drawable/baseline_search_24"
+        android:drawableTint="@color/third"
+        android:hint="@string/search_with_city_name"
+        android:imeOptions="actionSearch"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_city_name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/explore_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/explore_your_city_weather"
+        app:layout_constraintBottom_toBottomOf="@id/img_search"
+        app:layout_constraintEnd_toEndOf="@id/img_search"
+        app:layout_constraintStart_toStartOf="@id/img_search" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/result_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_city_name">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_result_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circleImgSearch" />
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guid_line_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guid_line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/city_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/cairo_egypt" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/cloud_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/cloud_and_sun"
+            app:layout_constraintBottom_toTopOf="@id/guid_line2"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/type_of_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@id/cloud_img"
+            app:layout_constraintStart_toStartOf="@id/cloud_img"
+            app:layout_constraintTop_toBottomOf="@id/guid_line2"
+            tools:text="@string/cloudy" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/day_degree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="48dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/guid_line_center"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/day_3" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/night_degree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/day_degree"
+            app:layout_constraintTop_toBottomOf="@id/day_degree"
+            tools:text="@string/night_1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="January 18, 16:24" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/base_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="@id/guid_line2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guid_line2"
+            tools:text="3°" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fell_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/base_degree"
+            app:layout_constraintTop_toBottomOf="@id/base_degree"
+            tools:text="Feels like -2°" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guid_line_center"
+            tools:text="Humidity" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imgSearchNotFound"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/explore_city"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_city_name"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/not_found" />
+</androidx.constraintlayout.widget.ConstraintLayout>

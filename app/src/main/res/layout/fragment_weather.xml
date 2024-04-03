@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid_line_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_weather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/weather_img"
+        app:layout_constraintBottom_toTopOf="@id/guid_line_center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circle" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/icon_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:src="@drawable/baseline_search_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/city_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/cairo_egypt" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/cloud_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/cloud_and_sun"
+        app:layout_constraintBottom_toTopOf="@id/guid_line2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/type_of_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/cloud_img"
+        app:layout_constraintStart_toStartOf="@id/cloud_img"
+        app:layout_constraintTop_toBottomOf="@id/guid_line2"
+        tools:text="@string/cloudy" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/day_degree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="48dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/img_weather"
+        app:layout_constraintEnd_toEndOf="@id/img_weather"
+        tools:text="@string/day_3" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/night_degree"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/img_weather"
+        app:layout_constraintStart_toStartOf="@id/day_degree"
+        app:layout_constraintTop_toBottomOf="@id/day_degree"
+        tools:text="@string/night_1" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/img_weather"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="January 18, 16:24" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/base_degree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@id/guid_line2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guid_line2"
+        tools:text="3°" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/fell_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@id/base_degree"
+        app:layout_constraintStart_toStartOf="@id/base_degree"
+        tools:text="Feels like -2°" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toBottomOf="@id/img_weather">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_8"
+            android:gravity="center"
+            android:text="@string/today"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_8_white"
+            android:gravity="center"
+            android:text="@string/tomorrow"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ten_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_8_white"
+            android:gravity="center"
+            android:text="@string/_10_days"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_wind_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintStart_toStartOf="@id/img_weather"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/icon_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_15"
+        android:drawableStart="@drawable/group_14"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/card_wind_speed"
+        app:layout_constraintEnd_toStartOf="@+id/icon_rain"
+        app:layout_constraintStart_toStartOf="@+id/linear"
+        app:layout_constraintTop_toTopOf="@id/card_wind_speed" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wind_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/wind_speed"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/icon_wind"
+        app:layout_constraintTop_toTopOf="@id/icon_wind" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wind_speed_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/_12km_h"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/icon_wind"
+        app:layout_constraintStart_toStartOf="@id/icon_wind" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_rain_chance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="@id/img_weather"
+        app:layout_constraintStart_toEndOf="@id/card_wind_speed"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/icon_rain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_15"
+        android:drawableStart="@drawable/rainy"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/card_rain_chance"
+        app:layout_constraintEnd_toEndOf="@id/linear"
+        app:layout_constraintStart_toEndOf="@id/icon_wind"
+        app:layout_constraintTop_toTopOf="@id/card_rain_chance" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rain_chance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/rain_chance"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/icon_rain"
+        app:layout_constraintTop_toTopOf="@id/icon_rain" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rain_probability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/_24"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/icon_rain"
+        app:layout_constraintStart_toStartOf="@id/icon_rain" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/guid_line_bottom"
+        app:layout_constraintStart_toStartOf="@id/card_wind_speed"
+        app:layout_constraintTop_toBottomOf="@+id/wind_speed_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/icon_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rectangle_15"
+        android:drawableStart="@drawable/waves"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/card_pressure"
+        app:layout_constraintStart_toStartOf="@+id/icon_wind"
+        app:layout_constraintTop_toBottomOf="@+id/icon_wind"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/pressure"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/icon_pressure"
+        app:layout_constraintTop_toTopOf="@id/icon_pressure" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pressure_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/_24"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/icon_pressure"
+        app:layout_constraintStart_toStartOf="@id/icon_pressure" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_uv_index"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@id/guid_line_bottom"
+        app:layout_constraintEnd_toEndOf="@id/img_weather"
+        app:layout_constraintStart_toEndOf="@id/card_wind_speed"
+        app:layout_constraintTop_toBottomOf="@id/card_rain_chance" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/icon_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_15"
+        android:drawableStart="@drawable/high_humidity"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/icon_pressure"
+        app:layout_constraintEnd_toEndOf="@+id/icon_rain"
+        app:layout_constraintTop_toTopOf="@id/icon_pressure" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/humidity"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/icon_light"
+        app:layout_constraintTop_toTopOf="@id/icon_light" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/humidity_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/_24"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/icon_light"
+        app:layout_constraintStart_toStartOf="@id/icon_light" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guid_line_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68"
+        app:layout_constraintTop_toBottomOf="@id/icon_pressure" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/hourly_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/rectangle_5"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/guid_line_bottom">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/hourly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/group_21"
+            android:gravity="center_vertical"
+            android:text="@string/hourly_forecast"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="6"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintTop_toBottomOf="@id/hourly">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="@string/now" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_9_am" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_12_am" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_3_am" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_6_pm" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_8_pm" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="6"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintTop_toBottomOf="@id/hours">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cloud" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/group" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/group" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cloud" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/cloud" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/group" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/weather_at_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="6"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintTop_toBottomOf="@id/type">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_10" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_at_9am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_8" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_at_12am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_8" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_at_3am"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_8" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_at_6pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_8" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_at_8pm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/_8" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintStart_toStartOf="@id/hourly_day"
+        app:layout_constraintTop_toBottomOf="@+id/hourly_day" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/icon_sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/rectangle_15"
+        android:drawableStart="@drawable/group_63"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/card_sunrise"
+        app:layout_constraintStart_toStartOf="@+id/linear"
+        app:layout_constraintTop_toBottomOf="@+id/hourly_day"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/sunrise"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/icon_sunrise"
+        app:layout_constraintTop_toTopOf="@id/icon_sunrise" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sunrise_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/_4_20_am"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/icon_sunrise"
+        app:layout_constraintStart_toStartOf="@id/icon_sunrise" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="@id/hourly_day"
+        app:layout_constraintTop_toBottomOf="@+id/hourly_day" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/icon_sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/rectangle_15"
+        android:drawableStart="@drawable/group_63"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/card_sunset"
+        app:layout_constraintEnd_toEndOf="@+id/linear"
+        app:layout_constraintTop_toBottomOf="@+id/hourly_day"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="Sunset"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/icon_sunset"
+        app:layout_constraintTop_toTopOf="@id/icon_sunset" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sunset_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:text="@string/_4_20_am"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/icon_sunset"
+        app:layout_constraintStart_toStartOf="@id/icon_sunset" />
+</androidx.constraintlayout.widget.ConstraintLayout>

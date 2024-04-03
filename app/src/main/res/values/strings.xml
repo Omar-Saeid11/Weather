@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="get_started">Get Started</string>
+    <string name="explore_global_map_of_wind_weather_and_ocean_conditions">Explore Global map of wind, weather and ocean conditions</string>
+    <string name="planning_your_trip_become_more_easier_with_weather_wizard_app_you_can_instantly_see_the_whole_world_weather_within_few_seconds">Planning your trip become more easier with Weather Wizard app. You can instantly see the whole world weather within few seconds</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cairo_egypt">Cairo, Egypt</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="day_3">Day 3°</string>
+    <string name="night_1">Night -1°</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="_10_days">10 days</string>
+    <string name="_12km_h">12km/h</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="_24">24%</string>
+    <string name="rain_chance">Rain Chance</string>
+    <string name="pressure">Pressure</string>
+    <string name="uv_index">UV Index</string>
+    <string name="hourly_forecast">Hourly Forecast</string>
+    <string name="now">Now</string>
+    <string name="_9_am">9 Am</string>
+    <string name="_3_am">3 Pm</string>
+    <string name="_6_pm">6 Pm</string>
+    <string name="_8_pm">8 Pm</string>
+    <string name="_10">10°</string>
+    <string name="_8">8°</string>
+    <string name="_4_20_am">4:20 Am</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="humidity">Humidity</string>
+    <string name="search_with_city_name">Search with city name</string>
+    <string name="explore_your_city_weather">Explore your city weather</string>
+    <string name="_12_am">12 Pm</string>
+    <string name="please_enter_valid_city_name">Please enter valid city name</string>
+    <string name="bar">|</string>
+</resources>
