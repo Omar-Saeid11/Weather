@@ -34,4 +34,9 @@
     <string name="_12_am">12 Pm</string>
     <string name="please_enter_valid_city_name">Please enter valid city name</string>
     <string name="bar">|</string>
+    <string name="detailed_hourly_forecast">Detailed Hourly\n       Forecast</string>
+    <string name="get_in_depth_weather_n_information">Get in - depth weather\n information.</string>
+    <string name="real_time_weather_map">Real-Time \nWeather Map</string>
+    <string name="watch_the_progress_of_the_nprecipitation_to_stay_informed">Watch the progress of the \nprecipitation to stay informed</string>
+    <string name="add_any_location_you_want_and_swipe_easily_to_chnage">Add any location you want and swipe easily to chnage.</string>
 </resources>

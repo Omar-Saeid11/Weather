@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangle"
+    tools:context=".ui.onboarding.screens.OnBoardingThirdFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/img_first"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imageView"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/anim_cl" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group4"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_img"
+        app:layout_constraintTop_toBottomOf="@id/img_first" />
+
+    <ImageView
+        android:id="@+id/bottom_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ovl"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detailed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:padding="14dp"
+        android:text="@string/detailed_hourly_forecast"
+        android:textSize="32sp"
+        app:layout_constraintTop_toTopOf="@id/bottom_img" />
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="@string/add_any_location_you_want_and_swipe_easily_to_chnage"
+        android:textColor="@color/gray"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_detailed" />
+
+    <ImageView
+        android:id="@+id/next_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/third"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_info" />
+</androidx.constraintlayout.widget.ConstraintLayout>
