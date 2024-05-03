@@ -8,13 +8,13 @@ import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.example.weather.R
 import com.example.weather.databinding.ActivityMainBinding
-import com.example.weather.ui.get_start_fragment.GetStartedFragment
+import com.example.weather.ui.onboarding.ViewPagerFragment
 import com.example.weather.util.PreferencesUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
@@ -30,16 +30,19 @@ import com.google.android.gms.tasks.Task
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-    private val getStartedFragment = GetStartedFragment()
+
+    //    private val getStartedFragment = GetStartedFragment()
+    private val viewPagerFragment = ViewPagerFragment()
     private var isLocationEnabled = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         PreferencesUtil.initPrefUtil(this)
         setContentView(binding.root)
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        addFragment(getStartedFragment)
+        addFragment(viewPagerFragment)
         checkPermission()
     }
 
@@ -73,12 +76,12 @@ class MainActivity : AppCompatActivity() {
             if (it.isSuccessful && it.result != null) {
                 PreferencesUtil.latitude = it.result.latitude.toString()
                 PreferencesUtil.longitude = it.result.longitude.toString()
-                getStartedFragment.binding?.btnStart?.isEnabled = true
-                Toast.makeText(
-                    applicationContext,
-                    "lat : ${it.result.latitude} , lon : ${it.result.longitude}",
-                    Toast.LENGTH_LONG
-                ).show()
+//                getStartedFragment.binding?.btnStart?.isEnabled = true
+//                Toast.makeText(
+//                    applicationContext,
+//                    "lat : ${it.result.latitude} , lon : ${it.result.longitude}",
+//                    Toast.LENGTH_LONG
+//                ).show()
             }
 
         }

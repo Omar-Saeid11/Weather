@@ -2,11 +2,13 @@ package com.example.weather.ui.get_start_fragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.weather.ui.Base.BaseFragment
 import com.example.weather.R
 import com.example.weather.databinding.FragmentGetStartedBinding
+import com.example.weather.ui.Base.BaseFragment
 import com.example.weather.ui.weather.WeatherFragment
+import com.example.weather.util.PreferencesUtil
 
 class GetStartedFragment : BaseFragment<FragmentGetStartedBinding>() {
     private val weatherFragment = WeatherFragment()
@@ -21,6 +23,16 @@ class GetStartedFragment : BaseFragment<FragmentGetStartedBinding>() {
     override fun setup() {
         binding?.btnStart?.setOnClickListener {
             replaceToFragment(weatherFragment)
+        }
+        if (PreferencesUtil.latitude.toString()
+                .isNotEmpty() && PreferencesUtil.longitude.toString().isNotEmpty()
+        ) {
+            binding?.btnStart?.isEnabled = true
+            Toast.makeText(
+                requireContext(),
+                "lat : ${PreferencesUtil.latitude} , lon : ${PreferencesUtil.longitude}",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
